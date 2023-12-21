@@ -61,7 +61,7 @@ _M_      _MM_MYMMMM9    YMMMM9  _MM_    `YMMM9'Yb. MMYMMM9  _MM_  _MM_         _
 #>
 
 param (
-    [Parameter(Mandatory=$false)]
+    [Parameter(Mandatory=$true)]
     [string]$MsiName  
 )
 
