@@ -36,7 +36,7 @@ _M_      _MM_MYMMMM9    YMMMM9  _MM_    `YMMM9'Yb. MMYMMM9  _MM_  _MM_         _
   then it connects to Azure AD in the destination tenant, grabs all the roles from the graph app and grabs all the roles assigned to the UAMI
   then it loops through the roles and display the role name and description
 
-.INPUTS
+.PARAMETER MsiName
   Name of the user-assigned managed service identity.
 
 .OUTPUTS
