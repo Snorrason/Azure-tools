@@ -11,7 +11,6 @@
             L    ,M9  MM    MM YM.   ,M9  MM      MM     MM.  ,MM  L    ,MM YM.   ,M9  MM    MM 
             MYMMMM9  _MM_  _MM_ YMMMMM9  _MM_    _MM_    `YMMM9'Yb.MYMMMM9   YMMMMM9  _MM_  _MM_
                                                                                                 
-                                                                                                                                                                                                                              
                                                                                                                                     
                                                                                     
        _                                                                                                                              ___         
@@ -50,24 +49,22 @@ _dM_     _dMM_  YMMM9MM_  YMMM9  YMMMMM9  _MM_  _MM_  _MM_`YMMM9'Yb.  YMMM9 _MM_
   Purpose/Change: Initial script development
   
 .EXAMPLE
-  .\Get-allwebhookExpireDates.ps1 -days 30
+  .\Get-allwebhookExpireDates.ps1 -days 30 -SubscriptionId "db5844eb-c35d-4cc9-bab2-12a9a5184826" -automationAccountName "aa-automation" -resourceGroupName "rg-automation"
 #>
-
 Param(
     [Parameter(Mandatory = $false)]
     [Int16] $days = 30,
-    [Parameter(Mandatory = $false)]
-    [String] $SubscriptionId = "",
-    [Parameter(Mandatory = $false)]
-    [String] $automationAccountName = "",
-    [Parameter(Mandatory = $false)]
-    [String] $resourceGroupName = ""
+    [Parameter(Mandatory = $true)]
+    [String] $SubscriptionId = "", # you can set the ID here for your primary Subscription
+    [Parameter(Mandatory = $true)]
+    [String] $automationAccountName = "", # you can set the name of your primary AccountName 
+    [Parameter(Mandatory = $true)]
+    [String] $resourceGroupName = "" # and the resource Group name 
 
 )
-function Login($SubscriptionId)
+function Enter-Subscription($SubscriptionId)
 {
     $context = Get-AzContext
-
     if (!$context -or ($context.Subscription.Id -ne $SubscriptionId)) 
     {
         Write-Host "you are not loged in to the correct subscription" -ForegroundColor Red
@@ -79,9 +76,8 @@ function Login($SubscriptionId)
         Write-Host "You Are connects" -ForegroundColor Green
     }
 }
-
 # Connect to your Azure account
-Login -SubscriptionId $SubscriptionId
+Enter-Subscription -SubscriptionId $SubscriptionId
 
 # Get all webhooks from your automation account
 $webhooks = Get-AzAutomationWebhook -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName
