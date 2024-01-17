@@ -41,8 +41,9 @@ _dM_     _dMM_  YMMM9MM_  YMMM9  YMMMMM9  _MM_  _MM_  _MM_`YMMM9'Yb.  YMMM9 _MM_
   N/A
 
 .OUTPUTS
-  Writes to console the API permissions for the User assigned identety in the destination tenant
-
+  Writes sourcefiles from Automation account to preset destination
+  - destination can be moved to param
+  
 .NOTES
   Version:        1.0
   Author:         Steen Snorrason
