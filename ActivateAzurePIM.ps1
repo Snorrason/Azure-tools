@@ -1,4 +1,4 @@
-# open MS Graph explorer to get your Admin A User ID
+# open MS Graph explorer to get your AdminUser ID
 # https://developer.microsoft.com/en-us/graph/graph-explorer
 # login with your admin account
 # run the following query   https://graph.microsoft.com/v1.0/me
