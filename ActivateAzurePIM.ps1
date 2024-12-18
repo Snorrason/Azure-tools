@@ -11,7 +11,7 @@ $startTime      = Get-Date -Format o
 $subscription   = "b14df531-3d41-434d-b27a-bd20b41ecd11"  # replace with subscription id of the subscription you want to elevate
 $tenantId       = "1f6f343d-0259-438c-bdc2-91bce86f5902" 
 
-$DurationInHours = 17 - (get-date -format HH) # let you have it open past 16:00
+$DurationInHours = [math]::min(8,(17 - (get-date -format HH))) # let you have it open past 16:00
 
 # See if you are loged on to Azure
 $AzContext=Get-AzContext
